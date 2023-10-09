@@ -12,7 +12,7 @@ export default function DefaultAccordion({
   population: string;
 }) {
   return (
-    <Accordion>
+    <Accordion collapseAll>
       <Accordion.Panel>
         <Accordion.Title>{name}</Accordion.Title>
         <Accordion.Content>

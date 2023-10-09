@@ -1,25 +1,40 @@
+import Link from "next/link";
 import DefaultAccordion from "./DefaultAccordion";
-// import getPlanets from "./services/services";
+import { getPlanets, getBooks } from "./services/services";
 
-async function getPlanets() {
-  try {
-    const response = await fetch("https://swapi.dev/api/planets");
-    const data = response.json();
-    return data;
-  } catch (error) {
-    return error;
-  }
-}
+export default async function Home() {
+  // const planets = await getPlanets();
+  // console.log(planets);
 
-export default function Home() {
-  const planets: any = getPlanets();
-  console.log(planets);
+  const books = await getBooks();
+  console.log(books);
 
   return (
-    <DefaultAccordion
-      name={"test"}
-      climate={"hello world"}
-      population={"test"}
-    />
+    <>
+      {/* {planets.results.map((e: any, i: number) => {
+        return (
+          <Link href={`planets/${i}`}>
+            <DefaultAccordion
+              key={i}
+              name={e.name}
+              climate={e.climate}
+              population={e.population}
+            />
+          </Link>
+        );
+      })} */}
+      {books.map((e: any, i: number) => {
+        return (
+          <Link href={`books/${i}`}>
+            <DefaultAccordion
+              key={i}
+              name={e.title}
+              climate={e.description}
+              population={e.author}
+            />
+          </Link>
+        );
+      })}
+    </>
   );
 }
