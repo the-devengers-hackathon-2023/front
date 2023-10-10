@@ -1,6 +1,7 @@
 import Link from "next/link";
 import DefaultAccordion from "./DefaultAccordion";
 import { getPlanets, getBooks } from "./services/services";
+import DefaultCard from "./DefaultCard";
 
 export default async function Home() {
   // const planets = await getPlanets();
@@ -10,31 +11,21 @@ export default async function Home() {
   console.log(books);
 
   return (
-    <>
-      {/* {planets.results.map((e: any, i: number) => {
-        return (
-          <Link href={`planets/${i}`}>
-            <DefaultAccordion
+    <div className="max-w-[1200px] mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:md:grid-cols-3 gap-4">
+        {books.map((e: any, i: number) => {
+          return (
+            <DefaultCard
               key={i}
-              name={e.name}
-              climate={e.climate}
-              population={e.population}
+              title={e.title}
+              description={e.description}
+              author={e.author.firstname + " " + e.author.lastname}
+              data={e}
+              linkUrl={`planets/${i}`}
             />
-          </Link>
-        );
-      })} */}
-      {books.map((e: any, i: number) => {
-        return (
-          <Link href={`books/${i}`}>
-            <DefaultAccordion
-              key={i}
-              name={e.title}
-              climate={e.description}
-              population={e.author}
-            />
-          </Link>
-        );
-      })}
-    </>
+          );
+        })}
+      </div>
+    </div>
   );
 }
