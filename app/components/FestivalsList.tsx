@@ -1,4 +1,4 @@
-import CardWithActionButton from "../components/Card";
+import CardWithActionButton from "./CardWithActionButton";
 import { FestivalObject } from "@/types/FestivalObject";
 
 
@@ -10,7 +10,7 @@ export default function FestivalsList({ festivals } : { festivals: Array<Festiva
           festivals.map((f: FestivalObject) => {
             return(
               <>
-                <CardWithActionButton title={f.nom_du_festival}/>
+                <CardWithActionButton festival={f}/>
               </>
             )
           })
