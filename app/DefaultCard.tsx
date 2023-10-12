@@ -21,11 +21,9 @@ export default function DefaultCard({
         <p>{title}</p>
       </h5>
       <p className="font-normal text-gray-700 dark:text-gray-400">
-        <p>{description}</p>
+        {description}
       </p>
-      <p className="font-normal text-gray-700 dark:text-gray-400">
-        <p>{author}</p>
-      </p>
+      <p className="font-normal text-gray-700 dark:text-gray-400">{author}</p>
     </Card>
   );
 }
