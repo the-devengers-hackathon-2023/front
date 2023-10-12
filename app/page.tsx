@@ -1,5 +1,4 @@
 import FilterButton from "./components/FilterButton";
-import PaginationWithIcons from "./components/Pagination";
 import Searchbar from "./components/Searchbar";
 import Festivals from "./festivals/page";
 import Loading from "./festivals/loading";
@@ -18,7 +17,6 @@ export default async function Home() {
       <Suspense fallback={<Loading/>}>
         <Festivals/>
       </Suspense>
-      <PaginationWithIcons />
     </>
   )
 }

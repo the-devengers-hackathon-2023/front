@@ -1,7 +1,8 @@
 import FestivalsList from "../components/FestivalsList";
+import PaginationWithIcons from "../components/Pagination";
 
-async function getData() {
-    const res = await fetch(`${process.env.API_URL}/festivals`);
+async function getData(pageParam: number) {
+    const res = await fetch(`${process.env.API_URL}/festivals?page=` + pageParam);
   
     if (!res.ok) {
       throw new Error("Error fetching data");
@@ -12,14 +13,19 @@ async function getData() {
 
 
 export default async function Festivals() {
-    const festivals = await getData();
+    const festivals = await getData(1);
 
+    // À enlever -> simule le chargement
     async function wait(ms) {
         return new Promise(resolve => setTimeout(resolve, ms));
     }
     
-    await wait(3000); 
+    await wait(2000); 
 
-    return (<FestivalsList festivals={festivals}/>
-)
+    return (
+      <>
+        <FestivalsList festivals={festivals}/>
+        <PaginationWithIcons/>
+      </>
+    )
 }
