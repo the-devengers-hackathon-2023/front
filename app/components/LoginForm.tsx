@@ -12,7 +12,7 @@ export default function LoginForm() {
   }
 
   return (
-    <form className="flex max-w-md flex-col gap-4">
+    <form className="flex max-w-md md:w-1/2 ld:w-1/3 flex-col gap-4">
       <div>
         <div className="mb-2 block">
           <Label htmlFor="email1" value="Votre email" />
