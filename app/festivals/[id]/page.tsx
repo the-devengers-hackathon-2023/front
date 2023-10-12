@@ -11,11 +11,14 @@ async function getFestival(id: string) {
   return res.json();
 }
 
-export default async function Festivals({ params } : { params: { id: string } } ) {
-
+export default async function Festivals({
+  params,
+}: {
+  params: { id: string };
+}) {
   const festival = await getFestival(params.id);
-  const lat = parseFloat(festival.geocodage_xy.split(',')[0])
-  const lon = parseFloat(festival.geocodage_xy.split(',')[1])
+  const lat = parseFloat(festival.geocodage_xy.split(",")[0]);
+  const lon = parseFloat(festival.geocodage_xy.split(",")[1]);
 
   return (
     <div className="flex flex-col lg:flex-row lg:mt-24 w-full gap-6">
@@ -25,7 +28,7 @@ export default async function Festivals({ params } : { params: { id: string } } 
 
       <div className="flex flex-col justify-end border rounded-lg lg:w-3/5 gap-6">
         <div className="w-full flex justify-center items-center bg-white border rounded-lg shadow-lg">
-          <Mapbox lon={lon} lat={lat}/>
+          <Mapbox lon={lon} lat={lat} />
         </div>
       </div>
     </div>

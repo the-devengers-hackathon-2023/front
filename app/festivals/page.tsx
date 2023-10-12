@@ -1,27 +1,44 @@
+"use client";
+
+import { useState, useEffect } from "react";
 import FestivalsList from "../components/FestivalsList";
 import PaginationWithIcons from "../components/Pagination";
 
-async function getData(pageParam: number) {
-  const res = await fetch(
-    `${process.env.API_URL}/festivals?page=` + pageParam,
-    { mode: "cors" }
-  );
+export default function Festivals() {
+  const [festivals, setFestivals] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
 
-  if (!res.ok) {
-    throw new Error("Error fetching data");
-  }
+  const getData = async (pageParam: number) => {
+    const res = await fetch(
+      `https://localhost:8000/api/festivals?page=` + pageParam,
+      { mode: "cors" }
+    );
 
-  return res.json();
-}
+    if (!res.ok) {
+      throw new Error("Error fetching data");
+    }
 
-export default async function Festivals() {
-  const festivals = await getData(1);
+    return res.json();
+  };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const data = await getData(currentPage);
+      setFestivals(data);
+      window.scrollTo(0, 0);
+    };
+
+    fetchData();
+  }, [currentPage]);
+
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page);
+  };
 
   return (
     <>
       <FestivalsList festivals={festivals} />
-      {/* TODO finish pagination */}
-      {/* <PaginationWithIcons/> */}
+      <PaginationWithIcons onPageChange={handlePageChange} />
     </>
   );
 }
