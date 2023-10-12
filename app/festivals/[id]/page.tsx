@@ -18,13 +18,13 @@ export default async function Festivals({ params } : { params: { id: string } } 
   const lon = parseFloat(festival.geocodage_xy.split(',')[1])
 
   return (
-    <div className="flex flex-col lg:flex-row w-full gap-6">
+    <div className="flex flex-col lg:flex-row lg:mt-24 w-full gap-6">
       <div className="lg:w-2/5">
         <SimpleCard festival={festival} />
       </div>
 
-      <div className="flex flex-col justify-end border lg:w-3/5 gap-6">
-        <div className="flex justify-center items-center lg:p-64 bg-white border rounded-lg shadow-lg">
+      <div className="flex flex-col justify-end border rounded-lg lg:w-3/5 gap-6">
+        <div className="w-full flex justify-center items-center bg-white border rounded-lg shadow-lg">
           <Mapbox lon={lon} lat={lat}/>
         </div>
       </div>

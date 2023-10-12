@@ -18,7 +18,8 @@ export default async function Festivals() {
     return (
       <>
         <FestivalsList festivals={festivals}/>
-        <PaginationWithIcons/>
+        {/* TODO finish pagination */}
+        {/* <PaginationWithIcons/> */}
       </>
     )
 }
