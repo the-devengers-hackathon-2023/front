@@ -1,20 +1,11 @@
-import CardWithActionButton from "./components/Card";
 import FilterButton from "./components/FilterButton";
+import PaginationWithIcons from "./components/Pagination";
 import Searchbar from "./components/Searchbar";
-
-async function getData() {
-  const res = await fetch(`${process.env.API_URL}/home`);
-
-  if (!res.ok) {
-    throw new Error("Error fetching data");
-  }
-
-  return res.json();
-}
+import Festivals from "./festivals/page";
+import Loading from "./festivals/loading";
+import { Suspense } from 'react';
 
 export default async function Home() {
-  const data = await getData();
-  
   return (
     <>
       <div className="fixed flex flex-col items-center top-[61.6px] w-full bg-white dark:bg-black z-20 pt-4">
@@ -24,17 +15,10 @@ export default async function Home() {
           <FilterButton text={"Merci"} />
         </div>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-[167px]">
-        {
-          data.festivals.map((f: void) => {
-            return(
-              <>
-                <CardWithActionButton title={f.festival.nom_du_festival}/>
-              </>
-            )
-          })
-        }
-      </div>
+      <Suspense fallback={<Loading/>}>
+        <Festivals/>
+      </Suspense>
+      <PaginationWithIcons />
     </>
   )
 }
