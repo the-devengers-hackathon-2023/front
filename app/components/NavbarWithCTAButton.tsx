@@ -1,6 +1,7 @@
-'use client';
+"use client";
 
-import { Button, Navbar } from 'flowbite-react';
+import { Button, Navbar } from "flowbite-react";
+import Link from "next/link";
 
 export default function NavbarWithCTAButton() {
   return (
@@ -16,11 +17,9 @@ export default function NavbarWithCTAButton() {
       </Navbar.Brand>
       <div className="flex md:order-2">
         <Button>
-          Get started
+          <Link href={"/login"}>Login</Link>
         </Button>
       </div>
     </Navbar>
-  )
+  );
 }
-
-
