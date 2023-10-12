@@ -9,6 +9,7 @@ export default function LoginForm() {
 
   async function handleSubmit(event: any) {
     event.preventDefault();
+    // TODO à enlever
     console.log(user);
     const res = await fetch(`https://hackathon.fanteam.fr/api/login_check`, {
       method: "POST",
@@ -60,7 +61,7 @@ export default function LoginForm() {
       </div>
       <Button type="submit">Envoyer</Button>
       <div className="flex py-6">
-        <p>Pas de compte ? </p>
+        <p className="dark:text-white">Pas de compte ? </p>
         <Link
           className="text-cyan-600 hover:underline dark:text-cyan-500"
           href="/register"
