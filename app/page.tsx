@@ -2,7 +2,7 @@ import FilterButton from "./components/FilterButton";
 import Searchbar from "./components/Searchbar";
 import Festivals from "./festivals/page";
 import Loading from "./festivals/loading";
-import { Suspense } from 'react';
+import { Suspense } from "react";
 
 export default async function Home() {
   return (
@@ -14,9 +14,9 @@ export default async function Home() {
           <FilterButton text={"Merci"} />
         </div>
       </div>
-      <Suspense fallback={<Loading/>}>
-        <Festivals/>
+      <Suspense fallback={<Loading />}>
+        <Festivals />
       </Suspense>
     </>
-  )
+  );
 }
