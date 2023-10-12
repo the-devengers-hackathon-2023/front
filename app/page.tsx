@@ -1,3 +1,4 @@
+import CardWithActionButton from "./components/Card";
 import FilterButton from "./components/FilterButton";
 import Searchbar from "./components/Searchbar";
 
@@ -20,21 +21,23 @@ export default async function Home() {
   const data = await getData()
 
   return (
-    <main className="flex min-h-screen flex-col items-center p-24">
+    <>
       <Searchbar />
-      <div className="">
+      <div className="w-3/4 pb-4 mb-4 border-b border-white">
         <FilterButton text={"Bonsoir"} />
         <FilterButton text={"Merci"} />
       </div>
-      {
-        data.map(d => {
-          return(
-            <>
-              {d.title}
-            </>
-          )
-        })
-      }
-    </main>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {
+          data.map((d: void) => {
+            return(
+              <>
+                <CardWithActionButton title={d.title}/>
+              </>
+            )
+          })
+        }
+      </div>
+    </>
   )
 }
