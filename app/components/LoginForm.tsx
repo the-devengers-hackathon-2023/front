@@ -40,9 +40,7 @@ export default function LoginForm() {
         <Checkbox id="remember" />
         <Label htmlFor="remember">Se souvenir de moi</Label>
       </div>
-      <Button type="submit" onSubmit={handleSubmit}>
-        Envoyer
-      </Button>
+      <Button type="submit">Envoyer</Button>
     </form>
   );
 }
