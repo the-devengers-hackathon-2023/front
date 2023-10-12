@@ -15,13 +15,6 @@ async function getData(pageParam: number) {
 export default async function Festivals() {
     const festivals = await getData(1);
 
-    // À enlever -> simule le chargement
-    async function wait(ms) {
-        return new Promise(resolve => setTimeout(resolve, ms));
-    }
-    
-    await wait(2000); 
-
     return (
       <>
         <FestivalsList festivals={festivals}/>
