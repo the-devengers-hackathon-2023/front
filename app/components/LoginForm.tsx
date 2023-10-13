@@ -9,8 +9,6 @@ export default function LoginForm() {
 
   async function handleSubmit(event: any) {
     event.preventDefault();
-    // TODO à enlever
-    console.log(user);
     const res = await fetch(`https://hackathon.fanteam.fr/api/login_check`, {
       method: "POST",
       body: JSON.stringify(user),
@@ -23,8 +21,8 @@ export default function LoginForm() {
       throw new Error("Error fetching data");
     }
 
-    // return res.json();
-    console.log(res.json());
+    const data = await res.json();
+    const token = data.token;
   }
 
   return (

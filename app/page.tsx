@@ -4,6 +4,7 @@ import Festivals from "./festivals/page";
 import Loading from "./festivals/loading";
 import { Suspense } from "react";
 
+
 export default async function Home() {
   return (
     <>

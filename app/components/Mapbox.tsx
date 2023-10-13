@@ -6,7 +6,7 @@ import Pin from "./Pin";
 export default function Mapbox({ lon, lat }: { lon: number; lat: number }) {
   return (
     <Map
-      mapboxAccessToken="pk.eyJ1IjoiYXphZmZhbG9uIiwiYSI6ImNsbm5oaWJ1NzA1encyam1udnhlcTNqNWwifQ.C0ZtlgzmiWtzuZc4K510ZQ"
+      mapboxAccessToken={process.env.NEXT_PUBLIC_MAPBOX_TOKEN}
       initialViewState={{
         longitude: lon,
         latitude: lat,

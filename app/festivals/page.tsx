@@ -10,7 +10,7 @@ export default function Festivals() {
 
   const getData = async (pageParam: number) => {
     const res = await fetch(
-      `https://localhost:8000/api/festivals?page=` + pageParam,
+      `${process.env.NEXT_PUBLIC_API_URL}/festivals?page=` + pageParam,
       { mode: "cors" }
     );
 

@@ -9,9 +9,9 @@ export default function FestivalsList({ festivals } : { festivals: Array<Festiva
         {
           festivals.map((f: FestivalObject) => {
             return(
-              <>
+              <div key={f.id}>
                 <CardWithActionButton festival={f}/>
-              </>
+              </div>
             )
           })
         }

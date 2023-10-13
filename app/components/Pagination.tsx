@@ -16,7 +16,7 @@ export default function PaginationWithIcons({ onPageChange }) {
       currentPage={currentPage}
       onPageChange={handlePageChange}
       showIcons
-      totalPages={100}
+      totalPages={50}
     />
   );
 }

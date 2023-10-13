@@ -2,7 +2,7 @@ import Mapbox from "@/app/components/Mapbox";
 import SimpleCard from "@/app/components/SimpleCard";
 
 async function getFestival(id: string) {
-  const res = await fetch(`${process.env.API_URL}/festivals/${id}`);
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/festivals/${id}`);
 
   if (!res.ok) {
     throw new Error("Failed to fetch data");
