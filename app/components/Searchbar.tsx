@@ -2,7 +2,7 @@
 import { useState } from "react";
 
 
-export default function Searchbar() {
+export default function Searchbar({setSearchResults}) {
     const [searchInput, setSearchInput] = useState()
 
     async function handleSearch(event) {
@@ -19,6 +19,7 @@ export default function Searchbar() {
         }
 
         const data = await res.json()
+        setSearchResults(data);
     }
 
     return (
